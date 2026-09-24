@@ -26,16 +26,16 @@ const consultationFields: InquiryField[] = [
 
 export default function ConsultationPage() {
   return (
-    <section className="grid gap-14 bg-forest px-6 py-16 text-cream md:grid-cols-2 md:px-12 md:py-24">
-      <div>
-        <SectionHeading
-          eyebrow="Book a Consultation"
-          title="A Good Property Decision Starts With the Right Conversation."
-          description="Buying, selling or assessing property can involve significant financial decisions. Speak with Foundation Estates about what you are looking for, the questions you have and the next steps available to you."
-          light
-        />
+    <section className="bg-forest px-6 py-16 text-cream md:px-12 md:py-24">
+      <SectionHeading
+        eyebrow="Book a Consultation"
+        title="A Good Property Decision Starts With the Right Conversation."
+        description="Buying, selling or assessing property can involve significant financial decisions. Speak with Foundation Estates about what you are looking for, the questions you have and the next steps available to you."
+        light
+      />
 
-        <div className="mt-10 space-y-6">
+      <div className="mt-14 grid gap-14 md:grid-cols-2">
+        <div className="space-y-6">
           <p className="text-sm text-cream/60 uppercase">We can assist with</p>
           {consultationServices.map((service) => (
             <div key={service.name}>
@@ -46,15 +46,15 @@ export default function ConsultationPage() {
             </div>
           ))}
         </div>
-      </div>
 
-      <div>
-        <InquiryForm
-          fields={consultationFields}
-          submitLabel="Book My Consultation"
-          note="No pressure. Just a conversation about your property needs."
-          light
-        />
+        <div>
+          <InquiryForm
+            fields={consultationFields}
+            submitLabel="Book My Consultation"
+            note="No pressure. Just a conversation about your property needs."
+            light
+          />
+        </div>
       </div>
     </section>
   );

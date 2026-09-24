@@ -7,12 +7,12 @@ import { brand, listings, testimonials, whyUs } from "@/lib/site-data";
 export default function Home() {
   return (
     <>
-      <section className="grid gap-10 px-6 pt-14 pb-16 md:grid-cols-2 md:px-12 md:pt-20">
+      <section className="grid gap-10 px-6 pt-14 pb-16 md:grid-cols-5 md:px-12 md:pt-20">
         <PlaceholderImage
           label="Featured property photo"
-          className="aspect-4/3 w-full grayscale md:aspect-auto md:h-full"
+          className="aspect-4/3 w-full grayscale md:col-span-3 md:aspect-auto md:h-full"
         />
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center md:col-span-2">
           <p className="text-xs tracking-widest text-charcoal/50 uppercase">
             {brand.name}
           </p>
@@ -87,7 +87,7 @@ export default function Home() {
           title="Property Decisions Deserve More Than a Sales Pitch."
           light
         />
-        <div className="mt-12 grid gap-10 sm:grid-cols-2">
+        <div className="mt-12 ml-auto grid max-w-2xl gap-10 sm:grid-cols-2">
           {whyUs.map((item) => (
             <div key={item.number}>
               <p className="font-serif text-3xl text-cream/50">{item.number}</p>
@@ -119,9 +119,10 @@ export default function Home() {
         <div className="mt-12 grid gap-10 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <div key={testimonial.role}>
-              <p className="font-serif text-4xl text-charcoal/20">&ldquo;</p>
-              <p className="-mt-4 text-charcoal/80">{testimonial.quote}</p>
-              <p className="mt-4 text-sm font-medium">— {testimonial.author}</p>
+              <p className="text-charcoal/80">&ldquo;{testimonial.quote}&rdquo;</p>
+              <p className="mt-4 font-mono text-sm text-charcoal/60">
+                - {testimonial.author}
+              </p>
               <p className="text-xs tracking-widest text-charcoal/50 uppercase">
                 {testimonial.role}
               </p>
