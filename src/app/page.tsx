@@ -1,69 +1,134 @@
-import Image from "next/image";
+import Link from "next/link";
+import { PlaceholderImage } from "@/components/site/PlaceholderImage";
+import { SectionHeading } from "@/components/site/SectionHeading";
+import { ListingCard } from "@/components/site/ListingCard";
+import { brand, listings, testimonials, whyUs } from "@/lib/site-data";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <section className="grid gap-10 px-6 pt-14 pb-16 md:grid-cols-2 md:px-12 md:pt-20">
+        <PlaceholderImage
+          label="Featured property photo"
+          className="aspect-4/3 w-full grayscale md:aspect-auto md:h-full"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+        <div className="flex flex-col justify-center">
+          <p className="text-xs tracking-widest text-charcoal/50 uppercase">
+            {brand.name}
+          </p>
+          <h1 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">
+            {brand.tagline}
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+          <p className="mt-5 text-lg text-charcoal/70">
+            Find the right property. Make informed decisions. Build lasting
+            value.
+          </p>
+          <p className="mt-4 max-w-md text-charcoal/70">
+            Foundation Estates helps individuals, families and investors find
+            and acquire land and homes while providing trusted property
+            consultancy and valuation support.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/properties"
+              className="rounded-full bg-forest px-6 py-3 text-sm text-cream hover:opacity-90"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Explore Properties
+            </Link>
+            <Link
+              href="/consultation"
+              className="rounded-full border border-charcoal px-6 py-3 text-sm hover:bg-charcoal hover:text-cream"
             >
-              Learning
-            </a>{" "}
-            center.
+              Book a Consultation
+            </Link>
+          </div>
+          <p className="mt-6 text-xs tracking-widest text-charcoal/50 uppercase">
+            {brand.shortLine.split(". ").join(" • ")}
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="border-t border-charcoal/10 px-6 py-16 md:px-12 md:py-24">
+        <SectionHeading
+          eyebrow="More Than Property"
+          title="A Foundation for What Comes Next."
+          description="Whether you are buying your first piece of land, searching for a home, investing in property or seeking professional guidance, we help you approach every decision with greater clarity and confidence."
+        />
+        <Link
+          href="/about"
+          className="mt-6 inline-block text-sm underline underline-offset-4"
+        >
+          Discover Foundation Estates →
+        </Link>
+      </section>
+
+      <section className="bg-taupe/40 px-6 py-16 md:px-12 md:py-24">
+        <SectionHeading
+          eyebrow="Recent Listings"
+          title="Find a Property Worth Building On."
+          description="Explore selected land, homes and investment opportunities available through Foundation Estates."
+        />
+        <div className="mt-10 grid gap-8 md:grid-cols-3">
+          {listings.map((listing) => (
+            <ListingCard key={listing.name} listing={listing} />
+          ))}
         </div>
-      </main>
-    </div>
+        <Link
+          href="/properties"
+          className="mt-10 inline-block rounded-full bg-forest px-6 py-3 text-sm text-cream hover:opacity-90"
+        >
+          View All Properties
+        </Link>
+      </section>
+
+      <section className="bg-forest px-6 py-16 text-cream md:px-12 md:py-24">
+        <SectionHeading
+          eyebrow="Why Foundation Estates?"
+          title="Property Decisions Deserve More Than a Sales Pitch."
+          light
+        />
+        <div className="mt-12 grid gap-10 sm:grid-cols-2">
+          {whyUs.map((item) => (
+            <div key={item.number}>
+              <p className="font-serif text-3xl text-cream/50">{item.number}</p>
+              <p className="mt-2 font-serif text-xl">{item.title}</p>
+              <p className="mt-2 text-sm text-cream/70">{item.description}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-16 border-t border-cream/10 pt-10">
+          <p className="font-serif text-3xl md:text-4xl">
+            We Don&apos;t Just Help You Find Property.
+            <br />
+            We Help You Build a Foundation.
+          </p>
+          <Link
+            href="/consultation"
+            className="mt-6 inline-block text-sm underline underline-offset-4"
+          >
+            Talk to Our Team →
+          </Link>
+        </div>
+      </section>
+
+      <section className="px-6 py-16 md:px-12 md:py-24">
+        <SectionHeading
+          eyebrow="What Our Clients Say"
+          title="Trust Is Built One Client at a Time."
+        />
+        <div className="mt-12 grid gap-10 md:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.role}>
+              <p className="font-serif text-4xl text-charcoal/20">&ldquo;</p>
+              <p className="-mt-4 text-charcoal/80">{testimonial.quote}</p>
+              <p className="mt-4 text-sm font-medium">— {testimonial.author}</p>
+              <p className="text-xs tracking-widest text-charcoal/50 uppercase">
+                {testimonial.role}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
