@@ -43,7 +43,7 @@ export default function ConsultationPage() {
             alt="A Foundation Estates advisor presenting a property to clients"
             fill
             sizes="(min-width: 768px) 40vw, 100vw"
-            className="object-cover grayscale"
+            className="object-cover"
           />
         </div>
       </div>

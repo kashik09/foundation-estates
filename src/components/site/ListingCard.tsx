@@ -18,7 +18,7 @@ export function ListingCard({ listing }: { listing: (typeof listings)[number] })
           alt={listing.name}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover grayscale"
+          className="object-cover"
         />
         <span
           className={`absolute top-3 left-3 rounded-full px-3 py-1 text-xs tracking-widest uppercase ${statusStyles[listing.status]}`}

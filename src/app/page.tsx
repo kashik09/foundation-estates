@@ -15,7 +15,7 @@ export default function Home() {
             fill
             priority
             sizes="(min-width: 768px) 60vw, 100vw"
-            className="object-cover grayscale"
+            className="object-cover"
           />
         </div>
         <div className="flex flex-col justify-center md:col-span-2">

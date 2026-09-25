@@ -67,7 +67,7 @@ export default function AboutPage() {
               alt="Foundation Estates advisors in conversation with clients"
               fill
               sizes="(min-width: 768px) 40vw, 100vw"
-              className="object-cover grayscale"
+              className="object-cover"
             />
           </div>
         </div>

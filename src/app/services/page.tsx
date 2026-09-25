@@ -26,7 +26,7 @@ export default function ServicesPage() {
               alt="A Foundation Estates advisor reviewing a property plan with clients"
               fill
               sizes="(min-width: 768px) 40vw, 100vw"
-              className="object-cover grayscale"
+              className="object-cover"
             />
           </div>
         </div>
