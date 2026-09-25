@@ -62,7 +62,7 @@ export default function Home() {
         </Link>
       </section>
 
-      <section className="bg-taupe/40 px-6 py-16 md:px-12 md:py-24">
+      <section className="bg-taupe px-6 py-16 md:px-12 md:py-24">
         <SectionHeading
           eyebrow="Recent Listings"
           title="Find a Property Worth Building On."
@@ -104,7 +104,7 @@ export default function Home() {
           </p>
           <Link
             href="/consultation"
-            className="mt-6 inline-block text-sm underline underline-offset-4"
+            className="mt-6 inline-block rounded-full bg-gold px-6 py-3 text-sm text-charcoal hover:opacity-90"
           >
             Talk to Our Team →
           </Link>

@@ -71,7 +71,7 @@ export default function AboutPage() {
 
       <section
         id="contact"
-        className="grid gap-10 bg-charcoal px-6 py-16 text-cream md:grid-cols-5 md:px-12 md:py-24"
+        className="grid gap-10 bg-forest px-6 py-16 text-cream md:grid-cols-5 md:px-12 md:py-24"
       >
         <div className="md:col-span-2">
           <SectionHeading
