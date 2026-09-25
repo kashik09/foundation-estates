@@ -53,7 +53,7 @@ export default async function PropertyPage({
         </Link>
 
         <div className="mt-8 grid gap-10 md:grid-cols-5 md:gap-14">
-          <div className="relative aspect-4/3 w-full overflow-hidden md:col-span-3 md:aspect-auto md:h-full">
+          <div className="relative aspect-4/3 w-full overflow-hidden md:col-span-3">
             <Image
               src={listing.image}
               alt={listing.name}
