@@ -25,10 +25,10 @@ export function InquiryForm({
     setSubmitted(true);
   }
 
-  const fieldClasses = `w-full border-b bg-transparent py-2 text-sm focus:outline-none ${
+  const fieldClasses = `w-full rounded-lg border px-4 py-3 text-sm transition-colors focus:outline-none ${
     light
-      ? "border-cream/30 placeholder:text-cream/40 focus:border-cream"
-      : "border-charcoal/30 placeholder:text-charcoal/40 focus:border-charcoal"
+      ? "border-cream/15 bg-cream/5 placeholder:text-cream/40 focus:border-gold focus:bg-cream/10"
+      : "border-charcoal/15 bg-charcoal/[0.03] placeholder:text-charcoal/40 focus:border-forest focus:bg-charcoal/5"
   }`;
 
   if (submitted) {
@@ -41,10 +41,14 @@ export function InquiryForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       {fields.map((field) => (
         <label key={field.name} className="flex flex-col gap-2 text-sm">
-          <span className={light ? "text-cream/70" : "text-charcoal/70"}>
+          <span
+            className={`text-xs tracking-widest uppercase ${
+              light ? "text-cream/60" : "text-charcoal/50"
+            }`}
+          >
             {field.label}
           </span>
           {field.type === "textarea" ? (
@@ -83,8 +87,8 @@ export function InquiryForm({
 
       <button
         type="submit"
-        className={`mt-2 w-fit rounded-full px-6 py-3 text-sm ${
-          light ? "bg-cream text-charcoal" : "bg-forest text-cream"
+        className={`mt-2 w-fit rounded-full px-7 py-3 text-sm font-medium transition-opacity hover:opacity-90 ${
+          light ? "bg-gold text-charcoal" : "bg-forest text-cream"
         }`}
       >
         {submitLabel}
