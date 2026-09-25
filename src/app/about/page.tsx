@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PlaceholderImage } from "@/components/site/PlaceholderImage";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { InquiryForm, type InquiryField } from "@/components/site/InquiryForm";
@@ -36,25 +37,39 @@ export default function AboutPage() {
   return (
     <>
       <section className="px-6 pt-14 pb-16 md:px-12 md:pt-20">
-        <SectionHeading
-          eyebrow="Meet Our Team"
-          title="People You Can Trust With Important Property Decisions."
-        />
-        <div className="mt-6 max-w-2xl space-y-4 text-charcoal/70">
-          <p>
-            Foundation Estates was built on a simple belief: property
-            ownership should be approached with the right information, the
-            right opportunities and people you can trust.
-          </p>
-          <p>
-            Our team works closely with clients looking to buy land, homes or
-            investment properties, as well as those seeking guidance on
-            property value and other real-estate decisions. We combine
-            personal attention with a long-term approach — because we
-            understand that property is often more than a purchase. It can be
-            a home, an investment, a source of security and a legacy for the
-            next generation.
-          </p>
+        <div className="grid gap-10 md:grid-cols-5 md:gap-14">
+          <div className="md:col-span-3">
+            <SectionHeading
+              eyebrow="Meet Our Team"
+              title="People You Can Trust With Important Property Decisions."
+            />
+            <div className="mt-6 max-w-2xl space-y-4 text-charcoal/70">
+              <p>
+                Foundation Estates was built on a simple belief: property
+                ownership should be approached with the right information, the
+                right opportunities and people you can trust.
+              </p>
+              <p>
+                Our team works closely with clients looking to buy land, homes
+                or investment properties, as well as those seeking guidance on
+                property value and other real-estate decisions. We combine
+                personal attention with a long-term approach — because we
+                understand that property is often more than a purchase. It
+                can be a home, an investment, a source of security and a
+                legacy for the next generation.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative aspect-4/3 w-full overflow-hidden md:col-span-2">
+            <Image
+              src="/images/about-team-at-work.jpg"
+              alt="Foundation Estates advisors in conversation with clients"
+              fill
+              sizes="(min-width: 768px) 40vw, 100vw"
+              className="object-cover grayscale"
+            />
+          </div>
         </div>
 
         <div className="mt-14 grid gap-10 sm:grid-cols-2">

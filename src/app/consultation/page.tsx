@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { InquiryForm, type InquiryField } from "@/components/site/InquiryForm";
 import { consultationServices, consultationInterests } from "@/lib/site-data";
@@ -27,12 +28,25 @@ const consultationFields: InquiryField[] = [
 export default function ConsultationPage() {
   return (
     <section className="bg-forest px-6 py-16 text-cream md:px-12 md:py-24">
-      <SectionHeading
-        eyebrow="Book a Consultation"
-        title="A Good Property Decision Starts With the Right Conversation."
-        description="Buying, selling or assessing property can involve significant financial decisions. Speak with Foundation Estates about what you are looking for, the questions you have and the next steps available to you."
-        light
-      />
+      <div className="grid gap-10 md:grid-cols-5 md:gap-14">
+        <div className="md:col-span-3">
+          <SectionHeading
+            eyebrow="Book a Consultation"
+            title="A Good Property Decision Starts With the Right Conversation."
+            description="Buying, selling or assessing property can involve significant financial decisions. Speak with Foundation Estates about what you are looking for, the questions you have and the next steps available to you."
+            light
+          />
+        </div>
+        <div className="relative aspect-4/3 w-full overflow-hidden md:col-span-2">
+          <Image
+            src="/images/consultation-banner.jpg"
+            alt="A Foundation Estates advisor presenting a property to clients"
+            fill
+            sizes="(min-width: 768px) 40vw, 100vw"
+            className="object-cover grayscale"
+          />
+        </div>
+      </div>
 
       <div className="mt-14 grid gap-14 md:grid-cols-2">
         <div className="space-y-6">
