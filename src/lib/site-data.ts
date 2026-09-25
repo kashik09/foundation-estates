@@ -36,36 +36,70 @@ export const team = [
 export type ListingStatus = "Available" | "New Listing" | "Sold" | "Under Offer";
 
 export const listings: Array<{
+  slug: string;
   name: string;
   type: "House" | "Land";
   price: string;
   details: string;
   status: ListingStatus;
   image: string;
+  description: string;
+  features: string[];
 }> = [
   {
+    slug: "123-beldenwood-avenue",
     name: "123 Beldenwood Avenue",
     type: "House",
     price: "UGX 450,000,000",
     details: "3 Bedrooms • 2 Bathrooms • 20 Decimals",
     status: "Available",
     image: "/images/listing-beldenwood-avenue.jpg",
+    description:
+      "A well-appointed home offering comfortable family living within a secure, established neighbourhood. Thoughtfully laid out across three bedrooms and two bathrooms, the property sits on 20 decimals with room to landscape, extend or simply enjoy as it stands.",
+    features: [
+      "3 Bedrooms",
+      "2 Bathrooms",
+      "20 Decimals",
+      "Titled Property",
+      "Secure Neighbourhood",
+      "Ready for Immediate Occupancy",
+    ],
   },
   {
+    slug: "45-whelstone-hill",
     name: "45 Whelstone Hill",
     type: "Land",
     price: "UGX 120,000,000",
     details: "50 × 100 ft • Titled Land • Residential",
     status: "New Listing",
     image: "/images/listing-whelstone-hill.jpg",
+    description:
+      "A titled residential plot in a growing area, well suited to building a home or holding as a long-term investment. The land is accessible, ready for development and positioned within reach of local amenities.",
+    features: [
+      "50 × 100 ft",
+      "Titled Land",
+      "Residential Zoning",
+      "Accessible Road Frontage",
+      "Ready for Development",
+    ],
   },
   {
+    slug: "6-roseltown-drive",
     name: "6 Roseltown Drive",
     type: "House",
     price: "UGX 620,000,000",
     details: "4 Bedrooms • 3 Bathrooms • 30 Decimals",
     status: "Under Offer",
     image: "/images/hero-property-dusk.jpg",
+    description:
+      "A spacious family residence set on 30 decimals, offering four bedrooms, three bathrooms and generous outdoor space. Currently under offer, this listing reflects the calibre of property Foundation Estates helps clients secure.",
+    features: [
+      "4 Bedrooms",
+      "3 Bathrooms",
+      "30 Decimals",
+      "Spacious Compound",
+      "Currently Under Offer",
+    ],
   },
 ];
 

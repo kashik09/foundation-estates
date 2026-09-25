@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { listings } from "@/lib/site-data";
 
-const statusStyles: Record<string, string> = {
+export const statusStyles: Record<string, string> = {
   Available: "bg-forest text-cream",
   "New Listing": "bg-charcoal text-cream",
   "Under Offer": "bg-taupe text-charcoal",
@@ -33,7 +33,7 @@ export function ListingCard({ listing }: { listing: (typeof listings)[number] })
       <p className="mt-1 text-sm font-medium">{listing.price}</p>
       <p className="mt-1 text-sm text-charcoal/60">{listing.details}</p>
       <Link
-        href="/consultation"
+        href={`/properties/${listing.slug}`}
         className="mt-3 inline-block text-sm underline underline-offset-4"
       >
         View Property →
