@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import { PlaceholderImage } from "@/components/site/PlaceholderImage";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { ListingCard } from "@/components/site/ListingCard";
 import { brand, listings, testimonials, whyUs } from "@/lib/site-data";
@@ -8,10 +8,16 @@ export default function Home() {
   return (
     <>
       <section className="grid gap-10 px-6 pt-14 pb-16 md:grid-cols-5 md:px-12 md:pt-20">
-        <PlaceholderImage
-          label="Featured property photo"
-          className="aspect-4/3 w-full grayscale md:col-span-3 md:aspect-auto md:h-full"
-        />
+        <div className="relative aspect-4/3 w-full overflow-hidden md:col-span-3 md:aspect-auto md:h-full">
+          <Image
+            src="/images/hero-property-dusk.jpg"
+            alt="A Foundation Estates property at dusk, overlooking the lake"
+            fill
+            priority
+            sizes="(min-width: 768px) 60vw, 100vw"
+            className="object-cover grayscale"
+          />
+        </div>
         <div className="flex flex-col justify-center md:col-span-2">
           <p className="text-xs tracking-widest text-charcoal/50 uppercase">
             {brand.name}

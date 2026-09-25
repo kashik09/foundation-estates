@@ -41,6 +41,7 @@ export const listings: Array<{
   price: string;
   details: string;
   status: ListingStatus;
+  image: string;
 }> = [
   {
     name: "123 Beldenwood Avenue",
@@ -48,6 +49,7 @@ export const listings: Array<{
     price: "UGX 450,000,000",
     details: "3 Bedrooms • 2 Bathrooms • 20 Decimals",
     status: "Available",
+    image: "/images/listing-beldenwood-avenue.jpg",
   },
   {
     name: "45 Whelstone Hill",
@@ -55,6 +57,7 @@ export const listings: Array<{
     price: "UGX 120,000,000",
     details: "50 × 100 ft • Titled Land • Residential",
     status: "New Listing",
+    image: "/images/listing-whelstone-hill.jpg",
   },
   {
     name: "6 Roseltown Drive",
@@ -62,6 +65,7 @@ export const listings: Array<{
     price: "UGX 620,000,000",
     details: "4 Bedrooms • 3 Bathrooms • 30 Decimals",
     status: "Under Offer",
+    image: "/images/hero-property-dusk.jpg",
   },
 ];
 

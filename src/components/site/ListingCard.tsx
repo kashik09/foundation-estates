@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import { PlaceholderImage } from "./PlaceholderImage";
 import type { listings } from "@/lib/site-data";
 
 const statusStyles: Record<string, string> = {
@@ -12,10 +12,13 @@ const statusStyles: Record<string, string> = {
 export function ListingCard({ listing }: { listing: (typeof listings)[number] }) {
   return (
     <div>
-      <div className="relative">
-        <PlaceholderImage
-          label="Property photo"
-          className="aspect-4/3 w-full grayscale"
+      <div className="relative aspect-4/3 w-full overflow-hidden">
+        <Image
+          src={listing.image}
+          alt={listing.name}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover grayscale"
         />
         <span
           className={`absolute top-3 left-3 rounded-full px-3 py-1 text-xs tracking-widest uppercase ${statusStyles[listing.status]}`}
