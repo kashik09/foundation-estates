@@ -1,6 +1,12 @@
 import { PlaceholderImage } from "@/components/site/PlaceholderImage";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { InquiryForm, type InquiryField } from "@/components/site/InquiryForm";
+import {
+  ClockIcon,
+  MailIcon,
+  MapPinIcon,
+  PhoneIcon,
+} from "@/components/site/icons";
 import { brand, team } from "@/lib/site-data";
 import type { Metadata } from "next";
 
@@ -13,6 +19,17 @@ const contactFields: InquiryField[] = [
   { type: "text", name: "phone", label: "Phone / WhatsApp" },
   { type: "text", name: "email", label: "Email Address" },
   { type: "textarea", name: "message", label: "How can we help?" },
+];
+
+const contactDetails = [
+  { icon: PhoneIcon, label: "Call / WhatsApp", lines: [brand.phone] },
+  { icon: MailIcon, label: "Email", lines: [brand.email] },
+  { icon: MapPinIcon, label: "Office", lines: [brand.officeAddress] },
+  {
+    icon: ClockIcon,
+    label: "Business Hours",
+    lines: brand.hours.map((entry) => `${entry.days}: ${entry.time}`),
+  },
 ];
 
 export default function AboutPage() {
@@ -71,46 +88,45 @@ export default function AboutPage() {
 
       <section
         id="contact"
-        className="grid gap-10 bg-forest px-6 py-16 text-cream md:grid-cols-5 md:px-12 md:py-24"
+        className="bg-forest px-6 py-20 text-cream md:px-12 md:py-28"
       >
-        <div className="md:col-span-2">
-          <SectionHeading
-            eyebrow="Contact Foundation Estates"
-            title="Your Next Property Conversation Starts Here."
-            description="Whether you are searching for land, looking for a home, considering an investment or need guidance on an existing property, our team is ready to speak with you."
-            light
-          />
+        <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-5 md:gap-12">
+          <div className="md:col-span-2">
+            <SectionHeading
+              eyebrow="Contact Foundation Estates"
+              title="Your Next Property Conversation Starts Here."
+              description="Whether you are searching for land, looking for a home, considering an investment or need guidance on an existing property, our team is ready to speak with you."
+              light
+            />
 
-          <div className="mt-10 space-y-6 text-sm">
-            <div>
-              <p className="text-cream/60 uppercase">Call / WhatsApp</p>
-              <p className="mt-1">{brand.phone}</p>
-            </div>
-            <div>
-              <p className="text-cream/60 uppercase">Email</p>
-              <p className="mt-1">{brand.email}</p>
-            </div>
-            <div>
-              <p className="text-cream/60 uppercase">Office</p>
-              <p className="mt-1">{brand.officeAddress}</p>
-            </div>
-            <div>
-              <p className="text-cream/60 uppercase">Business Hours</p>
-              {brand.hours.map((entry) => (
-                <p key={entry.days} className="mt-1">
-                  {entry.days}: {entry.time}
-                </p>
+            <div className="mt-10 space-y-6 border-t border-cream/10 pt-10">
+              {contactDetails.map(({ icon: Icon, label, lines }) => (
+                <div key={label} className="flex gap-4">
+                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
+                  <div>
+                    <p className="text-xs tracking-widest text-cream/50 uppercase">
+                      {label}
+                    </p>
+                    {lines.map((line) => (
+                      <p key={line} className="mt-1 text-sm text-cream/90">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
-        </div>
 
-        <div className="md:col-span-3">
-          <InquiryForm
-            fields={contactFields}
-            submitLabel="Send Enquiry"
-            light
-          />
+          <div className="md:col-span-3">
+            <div className="rounded-2xl border border-cream/10 bg-cream/[0.04] p-8 md:p-10">
+              <InquiryForm
+                fields={contactFields}
+                submitLabel="Send Enquiry"
+                light
+              />
+            </div>
+          </div>
         </div>
       </section>
     </>
